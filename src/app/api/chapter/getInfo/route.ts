@@ -31,27 +31,27 @@ export async function POST(req:Request,res:Response){
     let transcript=await getTranscript(videoId)
     console.log(videoId)
     console.log(transcript)
-    let maxLength=250
+    let maxLength=150
     transcript = transcript.split(" ").slice(0, maxLength).join(" ");
     const { summary }: { summary: string } = await strict_output(
         "You are an AI capable of summarising a youtube transcript",
-        "summarise in 150 words or less and do not talk of the sponsors or anything unrelated to the main topic, also do not introduce what the summary is about.\n" +
+        "summarise in 75 words or less and do not talk of the sponsors or anything unrelated to the main topic, also do not introduce what the summary is about.\n" +
           transcript,
         { summary: "summary of the transcript" }
       );
-      const questions=await getQuestionsFromTranscript(transcript,chapter.name)
-      await prisma.question.createMany({
-        data:questions.map(question=>{
-            let options=[question.answer,question.option1,question.option2,question.option3]
-            options=options.sort(()=>Math.random()*0.5)
-            return {
-                question:question.question,
-                answer:question.answer,
-                options:JSON.stringify(options),
-                chapterId:chapterId
-            }
-        })
-      })
+    //   const questions=await getQuestionsFromTranscript(transcript,chapter.name)
+    //   await prisma.question.createMany({
+    //     data:questions.map(question=>{
+    //         let options=[question.answer,question.option1,question.option2,question.option3]
+    //         options=options.sort(()=>Math.random()*0.5)
+    //         return {
+    //             question:question.question,
+    //             answer:question.answer,
+    //             options:JSON.stringify(options),
+    //             chapterId:chapterId
+    //         }
+    //     })
+    //   })
       await prisma.chapter.update({
         where:{id:chapterId},
         data:{

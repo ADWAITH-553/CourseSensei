@@ -60,7 +60,7 @@ const ConfirmChapters = ({course}: Props) => {
     <div className='flex items-center justify-center'>
     <Separator className='flex-[1]'/>
     <div className="flex items-center mx-4">
-        <Link href='/create' className=' mt-4 mr-4'>
+        <Link href='/gencourse' className=' mt-4 mr-4'>
      
         <Button className='bg-red-600 hover:bg-red-500'>
         <ChevronLeftCircle className="w-4 h-4 mr-2" strokeWidth={4}/>
@@ -69,7 +69,7 @@ const ConfirmChapters = ({course}: Props) => {
         
         </Link>
         {
-        totalChaptersCount===completedChapters.size?(<Link className='mt-4 flex bg-violet-600 hover:bg-green-700 w-full px-2 py-2 rounded-sm'href=''><ChevronRightCircle></ChevronRightCircle>Next Step</Link>):(<Button disabled={loading}type='button' className='mt-4 bg-violet-700 hover:bg-green-500 '
+        totalChaptersCount!=completedChapters.size?(<Link className='mt-4 flex bg-violet-600 hover:bg-green-700 w-full px-2 py-2 rounded-sm'href={`/course/${course.id}/0/0`}><ChevronRightCircle></ChevronRightCircle>Next Step</Link>):(<Button disabled={loading}type='button' className='mt-4 bg-violet-700 hover:bg-green-500 '
             onClick={()=>{
                     setLoading(true)
                     Object.values(chapterRefs).forEach((ref)=>{

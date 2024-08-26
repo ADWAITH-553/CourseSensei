@@ -101,7 +101,7 @@ const CreateCourseForm = (props: Props) => {
                     render={({ field }) => {return(
                         <FormItem className='flex flex-col items-start w-full sm:items-center sm:flex-row'>
                             <FormLabel className='flex-[1] text-xl text-violet-800 font-semibold'>
-                                Unit {index+1}
+                                UNIT {index+1}
                             </FormLabel>
                             <FormControl className="flex-[6]">
                                 <Input placeholder='enter the subtopics' {...field}/>
