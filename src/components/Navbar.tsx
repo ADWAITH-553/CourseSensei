@@ -19,7 +19,7 @@ const Navbar = async (props: Props) => {
           </p>
           </Link>
           <div className='flex items-center'>
-            <Link href='/gallery' className='mr-3 hover:text-violet-600'>Gallery</Link>
+            <Link href='/home' className='mr-3 hover:text-violet-600'>Home</Link>
             {session?.user && (<>
               <Link href="/gencourse" className='mr-3 hover:text-violet-600'  >Generate course</Link>
           <Link href='/settings' className='mr-3 hover:text-violet-600'>Settings</Link>

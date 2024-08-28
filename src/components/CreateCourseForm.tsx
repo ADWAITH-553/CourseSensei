@@ -14,6 +14,7 @@ import { useMutation } from '@tanstack/react-query'
 import axios from 'axios'
 import { useToast } from './ui/use-toast'
 import { useRouter } from 'next/navigation'
+import ForgeCoins from './ForgeCoins'
 type Props = {}
 type Input=z.infer<typeof createChaptersSchema>
 const CreateCourseForm = (props: Props) => {
@@ -135,7 +136,8 @@ const CreateCourseForm = (props: Props) => {
             </div>
             <Button type='submit' className="w-full mt-6 bg-violet-600 hover:bg-violet-500" size='lg'>Lets Go</Button>
           </form>
-</Form>
+        </Form>
+    <ForgeCoins/>
     </div>
     
   )
